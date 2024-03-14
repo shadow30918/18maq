@@ -1,0 +1,90 @@
+$pc-s:800px;
+$pc-m:1100px;
+$pc-l:1366px;
+
+$pc-s-inner:800px;
+$pc-m-inner:980px;
+$pc-l-inner:1200px;
+
+//pc-s
+ @mixin pc-s() {
+    @media all and (min-width: $pc-s) {
+        @content;
+    }
+}
+//pc-m
+ @mixin pc-m() {
+    @media all and (min-width:$pc-m) {
+        @content;
+    }
+}
+//pc-l
+ @mixin pc-l() {
+    @media all and (min-width: $pc-l) {
+        @content;
+    }
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+body{
+    overflow-x: hidden;
+    background-color: #000;
+    *{
+        box-sizing: border-box;
+        
+    }    
+    
+    .top{
+        position: relative;
+        width: 100vw;
+        height: 163.375vw;
+        background: url('../img/finish_bg.png')center top no-repeat;
+        background-size: cover;
+        background-color: #000;
+        @include pc-s{
+            background: url('../img/finish_bg-dt.png')center top no-repeat;
+            background-size: cover;
+            margin: 0 auto;
+            height: auto;
+            max-width: 1660px;
+        }
+        .inner{
+            padding-top: 20%;
+            position: relative;
+            @include pc-s{                
+                margin: 0 auto;
+                width: $pc-s-inner;
+                height: $pc-s-inner*750/980;
+                padding-top: $pc-s-inner*70/980;
+            }          
+            @include pc-m{
+                width: $pc-m-inner;
+                height: $pc-m-inner*750/980;
+                padding-top: $pc-m-inner*70/980;
+            }  
+            @include pc-l{
+                width: $pc-l-inner;
+                height: $pc-l-inner*750/980;
+                padding-top: $pc-l-inner*70/980;
+            }  
+
+            .main{
+                position: relative;
+                .num{
+                    position: absolute;
+                    color: #e60a4e;
+                    top: 23%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 26px;
+                    @include pc-s{
+                        top: 30%;
+                    }
+                }
+            }
+        }
+    }
+}
